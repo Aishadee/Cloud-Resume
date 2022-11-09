@@ -3,7 +3,7 @@
     <title>My Resume</title>
 </head>
 <link rel=Stylesheet href="style.css">
-<body>
+<body onload="updatecounter">
 
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic|Open+Sans:300,400,500,700|Waiting+for+the+Sunrise|Shadows+Into+Light' rel='stylesheet' type='text/css'>
 
@@ -40,15 +40,28 @@
         <section>
             <h1>Education</h1>
             <p>December 2022 <em>Texas A&M University, Commerce</em></p>
-            <p>Bachelor of Science <em>Computer Information Systems</em></p>
+            <p>Bachelor of Science <em>Computer</em></p>
         </section>
-        <!-- <section>
-            <div class="handmade\">
-            <p>handmade by <em> Anthony Adamski</em></p>
-            </div>
-        </section>
-        </div> -->
+    </div>
+    </div>
+    <section>
+        <footer>
+            <div class="handmade"></div>
+            <p>Visitors: <em>0</em></p>
+        </footer>
+    </section>
+    <script>
+       const updatecounter = async () => {
+        console.log("Here")
+    const response = await fetch("https://rifn08ypb7.execute-api.us-east-1.amazonaws.com/nana/resume", {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(["1"])
+    })
+        const res = await response.json()
+        console.log(res)
 
-    </div>
-    </div>
+}
+
+    </script>
 </body>
